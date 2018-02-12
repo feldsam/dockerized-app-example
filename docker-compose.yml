@@ -58,6 +58,17 @@ services:
       app-network:
         aliases:
           - nginx
+
+  portainer:
+    image: portainer/portainer
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./docker/conf/portainer:/data
+    restart: always
+    networks:
+      app-network:
+        aliases:
+          - portainer
           
 networks:
   app-network:
